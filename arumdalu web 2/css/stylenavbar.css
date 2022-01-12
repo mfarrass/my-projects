@@ -1,0 +1,161 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* logo dari google fonts, home product dll */
+body {
+  font-family: 'Quicksand', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Navbar */
+nav {
+  /* display flex agar disamping menu home dll */
+  display: flex;
+  background-color: rgb(0, 0, 0);
+  /* agar ada jarak logo dan home kasih space around/between */
+  justify-content: space-around;
+  /* padding: 20px 0; */
+  color: white;
+  /* selain pake pading bisa pake, height dan algin items ini buat kasih jarak */
+  height: 60px;
+  align-items: center;
+}
+
+/* font logo */
+nav .logo {
+  font-family: 'Shadows Into Light', sans-serif;
+  font-size: 10px;
+  text-shadow: 0px 1px 1px rgb(255, 255, 255);
+  /* letter-spacing agar renggang */
+  /* letter-spacing: 1px; */
+}
+
+/* agar si ul nya flexbox, agar gak pake inline dan float lg */
+nav ul {
+  display: flex;
+  /* list style none agar titik li ilang */
+  list-style: none;
+  /* width disini mengatur jarak navbar pada home, kanan kirinya  */
+  width: 40%;
+  /* justify cbw disini untuk mengatur jarak tulisan home,product dll */
+  justify-content: space-between;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  /* ngecilin si font home dll, kalo 0em adalah font defaultnya*/
+  font-size: 1em;
+  text-shadow: 0px 1px 1px black;
+}
+
+nav ul li a:hover {
+  color: white;
+}
+
+/* Hamburger Menu */
+/* atur jarak antara garisnya */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  height: 20px;
+  justify-content: space-between;
+  position: relative;
+}
+
+.menu-toggle input {
+  position: absolute;
+  width: 40px;
+  height: 28px;
+  left: -6px;
+  top: -4px;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: rgb(247, 241, 241);
+  border-radius: 3px;
+  transition: all 0.8s;
+}
+
+/* Hamburger Menu Animation */
+/* span:nth-child(2) adalah opsi untuk memanggil span. tanpa harus bikin div class, (2) adalah anak dari menu
+toogle setelah input */
+.menu-toggle span:nth-child(2) {
+  transform-origin: 0 0;
+}
+
+/* /* span:nth-child(4) adalah opsi untuk memanggil span. tanpa harus bikin div class, (4) adalah anak dari menu
+toogle setelah input / last */
+.menu-toggle span:nth-child(4) {
+  transform-origin: 0 100%;
+}
+
+/* Membentuk Hamburger menjadi X ketika diklik */
+/* (~) adalah blink. Cara bacanya ketika input di check, cari saudara yg span anak ke2 */
+/* ini garis pertama */
+.menu-toggle input:checked ~ span:nth-child(2) {
+  background-color: white;
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+/* ini garis ke 3, */
+.menu-toggle input:checked ~ span:nth-child(4) {
+  background-color: white;
+  transform: rotate(-45deg) translate(-1px, 0);
+}
+/* ini adalah garis kedua pada hamburger yg dihilangkan */
+.menu-toggle input:checked ~ span:nth-child(3) {
+  opacity: 0;
+  transform: scale(0);
+}
+
+nav ul.slide {
+  opacity: 1;
+  transform: translateX(0);
+}
+/* Akhir Navigasi */
+
+/* Set Responsivenya*/
+
+/* Responsive Tablet */
+@media screen and (max-width: 768px) {
+  nav ul {
+    width: 50%;
+  }
+}
+
+/* Responsive HP/Mobile */
+@media screen and (max-width: 576px) {
+  .menu-toggle {
+    display: flex;
+  }
+  nav ul {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 70%;
+    /* vh adalah tinggi dari layar yg kita lihat */
+    height: 100vh;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0);
+    z-index: -1;
+    border-left: 3px solid rgba(15, 15, 15, 0.2);
+    transform: translateX(100%);
+    transition: all 1.5s;
+    opacity: 0;
+  }
+
+  nav ul.slide {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
