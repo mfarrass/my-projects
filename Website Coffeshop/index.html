@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keseluruhan</title>
+    <!-- Content, Tables-->
+    <!-- cek responsive col ada di layout, containers, sm,md,lg dll -->
+    <!-- div adalah pembungkus, yg positionnya relative -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+  </head>
+
+ 
+  <style>
+    .banner {
+      /* w dan h mengatur ukuran img bg nya */
+      height: 70vh;
+      /* menggelapkan bg */
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/kopibg.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .banner-content {
+      height: 100%;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    /* si img slidenya  */
+    .carousel-contain {
+      background-color: #212529;
+      color: white;
+    }
+      /* bikin border haya untuk mengetahui lebar container saja */
+    /* .bordered{
+      border: solid;
+    } */
+  </style>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-dark" >
+      <!-- container-fluid, 100% ukuran responsivenya sama (kalo mau ubah ada di, layout, container) untuk mengubah jarak tulisan pada menu container-->
+      <div class="container-fluid">
+        <!-- navbar-brand (menandakan sebuah brand) disini bisa diklik, menuju link, (#) ganti link aja  -->
+
+        <!-- a classnya bisa diganti menjadi span, kalo gak mau menjadi sebuah link -->
+        <!-- <a class="navbar-brand" href="#">LOGO</a> -->
+
+        <!-- cara menganti logo dengan gambar pake img src-->
+        <a class="navbar-brand" href="#"> <img src="img/kopilogo.png"style="width:55px; margin-left: 20px;" />Coffe Woffe</a>
+
+        <!-- menu toggle -->
+        <!-- #navbarSupportedContent disini berfungsi ketika bar diklik akan akan tampil kebawah,
+        ngambil id pada class collapse dibawah  -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- akhir menu toggle -->
+
+        <!-- yang isembunyikan ketika responsive -->
+        <!-- class collapse disini berfungsi untuk menyembunyikan navbar ketika responsive -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- me-auto (me = margin-end) disini sebagai space bikinan bootstrap -->
+          <ul class="navbar-nav ms-auto mb-auto mb-2 mb-lg-0">
+            <li class="nav-item mx-3">
+              <!-- class active disini sebagai tampilan ketika berada dimenu tersebut fontnya akan nyala, berbeda sendiri -->
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <!-- mx-3 disini (mx = margin kiri dan kanan) - (3 = margin start dan end sebesar 3) 
+                memberi jarak pada tulisan di navigasi -->
+            <li class="nav-item mx-3">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item mx-3 dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Dropdown </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+            <li class="nav-item mx-3">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+          <form class="d-flex mx-3">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+            <button class="btn btn-outline-light" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Start Banner -->
+    <div class="container-fluid banner">
+      <!-- lg adalah size ukuran responsive large -->
+      <div class="container banner-content col-lg-6">
+        <div class="text-center">
+          <p class="fs-1">Welcome to CoffeWoffe</p>
+          <!-- d-none untuk text disini agar tidak terlihat -->
+          <!-- d-sm-block = ketika ukurannya small textnya akan tampil, ketika lebih dari sm dia akan hilang-->
+          <p class="d-none d-sm-block">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio fugiat vel autem saepe. Et quas cum debitis molestias corporis harum.</p>
+          <button class="btn btn-outline-light mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Reservasi</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Formulir Reservasi</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      
+      <div class="modal-body">
+      <form>
+        <div class="mb-3">
+          <label for="nama" class="form-label">Nama</label>
+          <input type="text" class="form-control" id="nama">
+        </div>
+        <div class="mb-3">
+          <label for="handphone" class="form-label">No Whatsapp</label>
+          <input type="number" class="form-control" id="handphone">
+          <label class="form-text">*Gunakan (+62)</label>
+        </div>
+        <div class="mb-3">
+          <label for="tanggal" class="form-label">Tanggal Reservasi</label>
+          <input type="date" class="form-control" id="tanggal">
+        </div>
+        <div class="mb-3">
+          <label for="jam" class="form-label">Waktu Reservasi</label>
+          <input type="time" class="form-control" id="jam">
+        </div>
+        <div class="mb-3">
+          <label for="jumblah" class="form-label">Jumlah Orang</label>
+          <input type="number" class="form-control" id="jumblah">
+        </div>
+      </form>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-outline-dark">Send</button>
+      </div>
+    </div>
+    </div>
+    </div>
+    <!-- End of Modal -->
+    <!-- End Banner -->
+
+    <!-- Accordion -->
+    <!-- my-5 = margin sumbu y (memberi jarak) -->
+    <!-- kasih container agar membentuk wadah sendiri (gak full) -->
+    <!-- col-6 = setengah panjang colomn nya -->
+    <!-- col-md-8 = ketika layar ukurannya medium maka columnya mengecil, bobotnya hanya 8 (dari 12) -->
+    <!-- col-sm-8 = ketika layar ukurannya small maka columnya mengecil, bobotnya hanya 8 (dari 12) -->
+    <!-- data-bs-target dan id nya harus sama -->
+    <div class="my-5 container col-10 col-sm-8 col-md-8 col-6">
+      <h2 class="text-center mb-5">Mengapa Harus mampir ke Coffeshop Woffe??</h2>
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Service Terbaik</button>
+          </h2>
+          <!-- show disini yg membuat sikotak menjadi terbuka terus setelah direfresh -->
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis eaque, debitis nam voluptatem neque ut commodi, consequatur ipsam tenetur voluptas corporis nihil soluta. Tempore adipisci consequatur sunt quas id nam provident
+              numquam voluptate cumque, facere praesentium sapiente, aspernatur a accusamus vitae corrupti rerum. Voluptates repellendus libero non quo rerum dolore deleniti quod inventore expedita ullam?
+            </div>
+          </div>
+        </div>
+
+        <!-- data-bs-parent="#accordionExample" disini selain jadi penanda id, dia juga membuat animasi ketika membuka kotakbawahnya akan naik fontnya -->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Harga Terjangkau</button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi eos soluta quos voluptate eligendi, quasi nihil autem enim unde beatae aliquam possimus commodi vitae cumque expedita natus maxime sapiente porro animi ipsa quia
+              rerum voluptas nemo recusandae. Inventore vel quis eos aperiam sed, perspiciatis atque at praesentium. Nam aperiam perferendis itaque doloremque accusantium at deserunt.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Akustik Music</button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit iste laborum quo dolores harum possimus et ipsa autem vitae obcaecati saepe esse minus placeat, voluptatem pariatur optio atque aut deserunt fuga! Illo sequi
+              quaerat neque nisi, molestiae officia. Officiis consequatur libero aut, et rem eveniet tempore maxime quos ab. Impedit.
+            </div>
+          </div>
+        </div>
+
+        <!-- target #collapseFour dan id = collapseFour harus sama kalau inggin buat baris baru-->
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Cashback 30%</button>
+          </h2>
+          <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong> ipsum dolor sit amet consectetur</strong>, adipisicing elit. Impedit iste laborum quo dolores harum possimus et ipsa autem vitae obcaecati saepe esse minus placeat, voluptatem pariatur optio atque aut deserunt fuga!
+              Illo sequi quaerat neque nisi, molestiae officia. Officiis consequatur libero aut, et rem eveniet tempore maxime quos ab. Impedit.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of Accordion -->
+
+    <!-- carousel -->
+
+    <div class="container-fluid carousel-contain py-5">
+      <!-- container disini untuk membuat gambar diwadahi tidak full img -->
+      <div class="container">
+        <!-- kasih text center agar ditengah sama mb-5 agar ada space bobot 5 -->
+        <h2 class="text-center mb-5">Produk Kami</h2>
+        <!-- col-lg-6 = untuk gambar large col nya 6 -->
+        <!-- offset-lg-3 = untuk gambar nya persis di tengah (2/8/2) -->
+        <div id="carouselExampleIndicators" class="carousel slide col-lg-8 offset-lg-2" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="img/kopilate (1).jpg" class="img-fluid rounded d-block w-100" alt="..." />
+              <div class="carousel-caption d-none d-md-block">
+                <h5>First slide label</h5>
+                <p>Some representative placeholder content for the first slide.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="img/kopilatte (1).jpg" class="img-fluid rounded d-block w-100" alt="..." />
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Second slide label</h5>
+                <p>Some representative placeholder content for the first slide.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="img/kopisusu (1).jpg" class="img-fluid rounded d-block w-100" alt="..." />
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Three slide label</h5>
+                <p>Some representative placeholder content for the first slide.</p>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- end of carousel -->
+    <div class="container-fluid py-5">
+      <div class="container">
+        <h2 class="text-center">Best Seller Coffe</h2>
+        <!-- class mt-5 d-block mx-auto membuat gambar ketengah -->
+        <!-- <div class="mt-5 d-block mx-auto" style="width: 500px"> -->
+        <!-- class img-fluid disini akan menyesuaikan gambar pada width stylenya, serta responsivenya -->
+        <!-- rounded = untuk membuat img mempunyai boreder radius -->
+        <!-- <img src="img/coffesmile.jpg" class="img-fluid rounded" alt="" /> -->
+
+        <!-- img-thumnail disini memberi border bawaan bootstrap -->
+        <!-- <img src="img/coffesmile.jpg" class="img-fluid img-thumbnail" alt="" /> -->
+
+        <!-- class col berfungsi untuk mengatur responsivenya -->
+        <!-- col-lg-* mengatur size img -->
+        <div class="col-lg-5 col-md-7 d-block mx-auto mt-5">
+          <img src="img/coffesmile.jpg" class="img-fluid img-thumbnail" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Blockquoute -->
+
+    <div class="container-fluid py-5 bg-dark text-light">
+      <div class="container">
+        <h2 class="text-center mb-5">Kata Costumer Kami</h2>
+
+        <div class="col-12 mb-2">
+          <!-- text md-start = ketika responsive medium dia balik kekiri -->
+          <figure class="text-center text-md-start">
+            <blockquote class="blockquote">
+              <p>A well-known quote, contained in a blockquote element.</p>
+            </blockquote>
+            <!-- <i> untuk tulisan miring </i> -->
+            <figcaption class="blockquote-footer"><i>Someone famous in</i> <cite title="Source Title">Source Title</cite></figcaption>
+          </figure>
+        </div>
+        <div class="col-12 mb-2">
+          <!-- ketika ukuran medium akan ada di end -->
+          <figure class="text-center text-md-end">
+            <blockquote class="blockquote">
+              <p>A well-known quote, contained in a blockquote element.</p>
+            </blockquote>
+            <!-- <i> untuk tulisan miring </i> -->
+            <figcaption class="blockquote-footer"><i>Someone famous in</i> <cite title="Source Title">Source Title</cite></figcaption>
+          </figure>
+        </div>
+        <div class="col-12 mb-2">
+          <figure class="text-center text-md-start">
+            <blockquote class="blockquote">
+              <p>A well-known quote, contained in a blockquote element.</p>
+            </blockquote>
+            <!-- <i> untuk tulisan miring </i> -->
+            <figcaption class="blockquote-footer"><i>Someone famous in</i> <cite title="Source Title">Source Title</cite></figcaption>
+          </figure>
+        </div>
+        <div class="col-12 mb-2">
+          <figure class="text-center text-md-end">
+            <blockquote class="blockquote">
+              <p>A well-known quote, contained in a blockquote element.</p>
+            </blockquote>
+            <!-- <i> untuk tulisan miring </i> -->
+            <figcaption class="blockquote-footer"><i>Someone famous in</i> <cite title="Source Title">Source Title</cite></figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <!-- End Of Blockquoute -->
+
+    <!-- Tampilan Produk Kami & card-->
+  <div class="container-fluid py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Produk Kami</h2>
+    
+   
+    <!-- List Grup -->
+     <div class="col-12">
+      <div class="row">
+
+         <!-- div class col card grup disini perhitungannya harus sama dengan col list grup galery
+        (jumblahnya jadi 12) -->
+        <div class="col-lg-3 col-md-4 mb-5">
+
+
+          <!-- yg sebelumnya ul & li diubah menjadi div & a href untuk menyambung kelink dan perubahan pada cursor -->
+          <div class="list-group list-group-flush">
+            <a href="https://www.healthifyme.com/blog/black-coffee-benefits-side-effects-nutrition-value/" class="list-group-item d-flex justify-content-between align-items-center" aria-current="true">
+                  Black Coffe
+                  <span class="badge bg-dark rounded-pill">7</span></a>
+            <a href="#" class="list-group-item d-flex justify-content-between align-items-center">Latte
+              <!-- menerapkan badge -->
+              <span class="badge bg-dark rounded-pill">12</span> </a>
+            <a href="#" class="list-group-item d-flex justify-content-between align-items-center">
+                  Ice Coffe <span class="badge bg-dark rounded-pill">7</span></a>
+            <a href="#" class="list-group-item d-flex justify-content-between align-items-center">
+                  Jelly Coffe <span class="badge bg-dark rounded-pill">6</span></a>
+            <a href="#" class="list-group-item d-flex justify-content-between align-items-center">
+                  Coffe Milk <span class="badge bg-dark rounded-pill">10</span></a>
+          </div> 
+        </div>
+        <!-- end list grup -->
+
+      <!-- perhitungn col list grup galery disini harus sama dengan col card grup 
+        (jumblahnya jadi 12) -->
+    <div class="col-lg-9 col-md-8">   
+    <div class="row">
+      <!-- metodenya 12 dibagi berapa untuk mengatur colomnya 12 : * = *-->
+      <!-- metode class col-lg-3 disini (ukuran besar gambar large) akan membuat 4 colom gambar, dan bisa untuk responsive img -->
+      <!-- metode class col-lg-4 disini (ukuran besar gambar medium) akan membuat 3 colom gambar, dan bisa untuk responsive img -->
+      <!-- metode class col-sm-6 disini (ukuran besar gambar small) akan membuat 2 colom gambar, dan bisa untuk responsive img -->
+
+      <div class="col-lg-4 col-md-6 col-sm-6 mb-3">
+        <!-- class card kalau ingin ubah bg bisa -->
+        <div class="card">
+          <!-- card-img-top dia membuat border radius didalam cardnya, top nya saja-->
+          <img src="img/kopis.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Americano Frezze</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <!-- dropdown-toogle disini sebagai lambang panah kebawah, lalu dibungkus dengan div syartnya -->
+            <div class="dropup">
+            <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown">Cek</button>
+            <!-- menambahkan menu dropdown di btn cek -->
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="#">Cek Detail</a></li>
+              <li><a class="dropdown-item" href="#">Buy Now</a></li>
+            </ul>
+          </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <!-- class card kalau ingin ubah bg bisa -->
+        <div class="card">
+          <!-- card-img-top dia membuat border radius didalam cardnya, top nya saja-->
+          <img src="img/kopis.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Americano Frezze</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div class="dropdown">
+            <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown">Cek</button>
+            <!-- menambahkan menu dropdown di btn cek -->
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <a class="dropdown-item" href="#">Cek Detail</a></li>
+              <li><a class="dropdown-item" href="#">Buy Now</a></li>
+            </ul>
+          </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <!-- class card kalau ingin ubah bg bisa -->
+        <div class="card">
+          <!-- card-img-top dia membuat border radius didalam cardnya, top nya saja-->
+          <img src="img/kopis.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Americano Frezze</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div class="dropstart">
+              <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown">Cek</button>
+              <!-- menambahkan menu dropdown di btn cek -->
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <a class="dropdown-item" href="#">Cek Detail</a></li>
+                <li><a class="dropdown-item" href="#">Buy Now</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <!-- class card kalau ingin ubah bg bisa -->
+        <div class="card">
+          <!-- card-img-top dia membuat border radius didalam cardnya, top nya saja-->
+          <img src="img/kopis.jpg" class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Americano Frezze</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div class="dropend">
+              <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown">Cek</button>
+              <!-- menambahkan menu dropdown di btn cek -->
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <a class="dropdown-item" href="#">Cek Detail</a></li>
+                <li><a class="dropdown-item" href="#">Buy Now</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+<!-- end card galery produk -->
+
+<!-- judul diatas tabel -->
+<div class="container-fluid py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Pemenang Doorprize Minggu ini </h2>
+
+    <!-- Popover & tabel -->
+    <!-- syarat mengunakan popover menambahkan script js ada di bagian componens, popovers -->
+    <div class="container mb-2">
+    <a tabindex="0" class="btn btn-outline-secondary text-decoration-none text-dark" data-bs-container="body"  
+    data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="top" title="Informasi" data-bs-content="Pengundian diumumkan setiap hari Sabtu jam 09.30 melalui gmail">
+      FYI
+    </a>
+  </div>
+    <!-- End of Popover & tabel -->
+
+    <!-- Table -->
+    <!-- tabel responsive disini akan responsive ketika ukuran sm (Tetapi kolom dan barisnya harus lebih dari 6) -->
+    <div class="tabel-responsive">
+    <table class="table table-hover tabel-bordered border-white table-dark mb-4">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nama</th>
+          <th scope="col">No.Hanphone</th>
+          <th scope="col">Tanggal</th>
+          <th scope="col">No. Undian</th>
+          <th scope="col">Hadiah</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Jaenal</td>
+          <td>081299326237</td>
+          <td>22 Des 2021</td>
+          <td>001</td>
+          <td>Americano Ice</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>082132133243</td>
+          <td>23 Des 2021</td>
+          <td>002</td>
+          <td>Matcha Latte</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Larry </td>
+          <td>081238345622</td>
+          <td>29 Des 2021</td>
+          <td>004</td>
+          <td>Hot Milk</td>
+        </tr>
+        <tr>
+          <th scope="row">4</th>
+          <td>Sobari </td>
+          <td>08123887463</td>
+          <td>01 Des 2022</td>
+          <td>006</td>
+          <td>Milk Jelly</td>
+        </tr>
+        <tr>
+          <th scope="row">5</th>
+          <td>Mamat </td>
+          <td>08626292134</td>
+          <td>02 Des 2022</td>
+          <td>012</td>
+          <td>Latte Ice</td>
+        </tr>
+      </tbody>
+    </table>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  
+<!-- End Of Tabel -->
+
+
+    <!-- Form -->
+    <div class="container-fluid py-5 bg-dark text-white">
+      <div class="container">
+        <h2 class="text-center mb-5">Contact Us</h2>
+
+        <!-- atur lebar label nya dengan col -->
+        <!-- fungsi offset-lg-2 untuk membuat label berada di tengah (2 + 8 + (2 ini terisi otomatis) = 12) -->
+        <div class="offset-lg-2 col-lg-8">
+
+          <!-- alert berhasil dikirim -->
+          <!-- icon bootstrap ada di = https://icons.getbootstrap.com/icons/send-check/ -->
+          <div class="alert alert-success alert-dismissible mb-5" id="myAlert">
+            <i class="bi bi-send-check"></i> Formulir Berhasil Dikirim, Klik <a href="https://www.google.co.id/" class="alert-link">
+              disini</a>  
+            </a>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+            <!-- end send alert -->
+
+        <form>
+          <!-- fungsi div disini agar labelnya kebawah gk kesamping lagi -->
+          <div class="mb-3">
+            <!-- fungsi row agar si label bisa inline -->
+          <div class="row">
+            <!-- membuat 2 label dalam satu inline -->
+            <div class="col-lg-6">
+              <label for="namadepan" class="form-label">Nama Depan</label>
+              <input type="text" id="namadepan" class="form-control form-control-sm" autocomplete="off">
+            </div>
+
+            <div class="col-lg-6">
+              <label for="namabelakang" class="form-label">Nama Belakang</label>
+              <input type="text" id="namabelakang" class="form-control form-control-sm" autocomplete="off">
+            </div>
+          </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label form-text">Instagram Anda</label>
+            <div class="input-group">
+              <span class="input-group-text">@</span>
+              <input type="text" class="form-control">
+              <!-- <span class="input-group-text">.com</span> -->
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <!-- form-label membuat jarak antara Email dan label -->
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" class="form-control form-control-sm" autocomplate="off">
+          <label class="form-text">*Email anda terenkripsi</label>
+          </div>
+
+          <div class="mb-3">
+            <label for="domisili" class="form-label">Domisili</label>
+            <select class="form-select" id="domisii">
+                <option value="kosong"></option>
+                <option value="Jabodetabek">Jabodetabek</option>
+                <option value="luarjawa">Luar Jawa</option>
+            </select>
+          </div>
+
+          <!-- radio button -->
+            <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="opsi1">
+           <label class="form-check-label" for="inlineRadio1">komplain</label>
+              </div>
+          <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="opsi2">
+          <label class="form-check-label" for="inlineRadio2">saran</label>
+          </div>
+          <!-- end radio button -->
+
+
+          <div class="mb-3 mt-3">
+          <label for="deskripsi" class="form-label">Deskripsi</label>
+          <!-- autocomplite off disini agar gak nampilin rekomendasi text label -->
+          <!-- form-control-sm = membuat size form nya agak kecil -->
+          <textarea id="deskripsi" class="form-control form-control-sm" cols="30" rows="10"></textarea>
+          </div>
+
+          <div class="mb-3">
+            <button type="button" id="btnKirim" onclick="simpanForm()" class="btn btn-outline-light w-100">Send</button>
+
+            <button type="button" id="btnLoading" class="btn btn-outline-light w-100 mt-2 disabled">
+            <div class="spinner-border spinner-border-sm" role="status"></div>
+            </button>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+    <!-- end of form -->
+
+   
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+      // script tambahan mengunakan Popover
+      var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+      var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+})
+
+      var myAlert = document.getElementById('myAlert');
+
+      myAlert.style.display = 'none';
+
+      function myFunction(){
+        myAlert.style.display = 'block'
+      }
+
+      var btnKirim = document.getElementById('btnKirim');
+      var btnLoading = document.getElementById('btnLoading');
+
+      // perintah menghilangkan button loading 
+      btnLoading.style.display = 'none';
+
+      // perintah ketika button send dikirim, maka akan muncul button loading
+      function startProses(){
+        btnKirim.style.display = 'none';
+        btnLoading.style.display = 'block';
+      }
+
+      // perintah ketika selesai button loading memproses, maka button send tampil lagi
+      function endProses(){
+        btnLoading.style.display = 'none';
+        btnKirim.style.display = 'block';
+      }
+
+      // animasi ketika send diklik akan jeda 3ms(loading), lalu balik kebagian send lagi dan memunculkan alert
+
+      function simpanForm(){
+        startProses();
+
+        setTimeout(function(){
+        endProses(); myFunction()
+      }, 3000);
+      }
+
+    </script>
+  </body>
+</html>
